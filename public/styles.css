@@ -1,0 +1,315 @@
+/* La tipografia se importa desde fonts.google copiando el codigo dentro de la etiqueta <style> "@import url..."
+Adicionalmente se debe llamar a la "font-family" (que también aparece en fonts.google) dentro del body{} y/o dentro de los elementos a los que se quiera modificar el texto
+(Se pueden importar varias Tipografías con un solo @import) */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sofia+Sans:ital,wght@1,100&display=swap');
+
+body {
+    font-family: 'Sofia Sans', sans-serif;
+    background-color: #472183;
+    Color: #F1F6F5
+}
+/* el selector "#" Se utiliza para llamar elementos del HTML que se distinguen por id  */
+#seleccionar-mascota {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* el selector "." Se utiliza para llamar elementos del HTML que se distinguen por clase (class)  */
+.titulo {
+    color: #F1F6F5;
+    font-family: 'Righteous', cursive;
+    user-select: none;
+    /* lo ideal, al momento de asignar tamaños a los titulos, subtitulos... es trabajar con multiplos de 4 */
+    font-size: 52px;
+}
+
+.subtitulo {
+    color: #F1F6F5;
+    font-size: 36px;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.tarjeta-de-mokepon {
+    /* Todos estos atributos es mejor crearlos a traves del inspector del navegador, porque permiten ver en tiempo real las modificaciones que se están realizando */
+    width: 200px;
+    height: 150px;
+    background: #4B56D2;
+    /* padding: 10px; */
+    /* atributo "box-sizing: su usa para que el "padding no modifique el tamaño asignado a la "tarjeta" */
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin: 10px;
+    border: 2px solid #4B56D2;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    color:#F1F6F5;
+    font-weight: bolder;
+    font-size: larger;
+    flex-direction: column;
+}
+
+/* CODIGO ROBADO DE TUTORIAL DE TIKTOK (IDEAL PARA TIENDA DE ROPA) */
+        .tarjeta-de-mokepon:hover {
+        transform: scale(1.15) translateZ(0);
+        background-size: 220px;
+        }
+        .tarjetas:hover > .tarjeta-de-mokepon:not(:hover) {
+            transform: scale(.9);
+        }
+        .tarjetas:hover > .tarjeta-de-mokepon:not(:hover),
+        .tarjetas:hover > .tarjeta-de-mokepon:not(:hover), .mascota {
+            filter: brightness(0.5) saturate(.5) contrast(1) blur(2px);
+        }
+
+/* Para no colocar otra clase (class=) a la etiqueta <img> (dentro del label) del HTML, ponemos el nombre del selector de tipo (para este caso imagen "img" y asignamos los estilos que queremos darle) */
+.tarjeta-de-mokepon img {
+    width: 80px;
+}
+
+.tarjeta-de-mokepon p {
+    display: flex;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+
+}
+
+#boton-mascota {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 60px;
+    background-color: #472183;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin: 10px;
+    border: 5px solid #82C3EC;
+    font-size: 15px;
+    font-family: 'Righteous', cursive;
+    color: #F1F6F5;
+}
+
+/* Intente llamar al boton mascota solo como el elemento que es "button" como se hizo la configuración para "input y label" más adelante, pero no cambiaba el color
+tuve que llamarlo por su "id" para que se apliquen las "pseudo clases" */
+
+#boton-mascota:hover {
+    background-color: #86c2fff0;
+    cursor: pointer;
+}
+#boton-mascota:active {
+    background-color: #a9d4ff;
+}
+
+input {
+    display: none;
+}
+/* Las "pseudo clases" permiten mostrar ciertas acciones realizadas por el usuario en el HTML. Estas "pesudoclases se llaman a través de ":" */
+/* EL selector "+" permite llamar al "elemento hermano (elemento siguiente)" del codigo y asignar las mismas caracteristicas a los dos elementos */
+/* Para que esta pseudo clase funcione adecuadamente se debe modificar el codigo HTML (en este caso) para que el input asignado esté antes del label */
+input:checked + label {
+    background-color: #86c2fff0;
+}
+input:hover + label {
+    background-color: #86c2fff0;
+    cursor: pointer;
+}
+input:active + label {
+    background-color: #a9d4ff;
+}
+
+
+#seleccionar-ataque {
+    /* Este atributo "display: flex" tuvo que ser modificado desde el archivo .js (este no afecta la programación de la página, se deja para tener en cuenta)*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tarjetaDeAtaques {
+    display: flex;
+}
+
+.boton-de-ataque {
+    width: 112px;
+    height: 92px;
+    background: #4B56D2;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin: 10px;
+    border: 2px solid #4B56D2;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    color: #F1F6F5;
+    font-weight: bolder;
+    font-size: larger;
+}
+.boton-de-ataque:checked {
+    background-color: #86c2fff0;
+}
+.boton-de-ataque:hover {
+    background-color: #86c2fff0;
+    cursor: pointer;
+}
+.boton-de-ataque:active {
+    background-color: #a9d4ff;
+}
+
+
+
+#mensajes{
+    width: 250px;
+    background: #FB2576;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+#boton-reiniciar{
+    border: none;
+    color: #FB2576;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: bolder;
+    font-size: medium;
+}
+
+/* El atributo "display: grid" permite crear rejillas las cuales según los valores asignados dividiran la rejilla
+(para este caso, se han creado dos columnas) */
+.ataques{
+    display: grid;
+    grid-template-columns: 100px 100px;
+    width: 500px;
+    justify-content: space-between;
+}
+
+/* Para no colocar otra clase "class=" a la etiqueta <div> (dentro del class="ataques") del HTML, ponemos el nombre del selector de tipo (para este caso imagen "div" y asignamos los atributos que queremos darle) */
+.ataques div {
+    text-align: center;
+    font-weight: bolder;
+
+}
+
+#vidas-jugador {
+    font-size: xx-large;
+    margin-bottom: auto;
+}
+#vidas-enemigo {
+    font-size: xx-large;
+    margin-bottom: auto;
+}
+
+#ver-mapa {
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+}
+
+#ver-mapa button {
+    width: 40px;
+    height: 40px;
+    background-color: #472183;
+    padding: 0px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin: 4px;
+    border: 4px solid #82C3EC;
+    font-size: 23px;
+    color: #F1F6F5;
+}
+
+.movimientos-mokepon {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 68px;
+    width: 100px;
+    align-items: stretch;
+    user-select: none;
+}
+#up{
+    grid-column: 2;
+    grid-row: 1;
+    user-select: none;
+}
+#left{
+    grid-column: 1;
+    grid-row: 2;
+    user-select: none;
+}
+#down{
+    grid-column: 2;
+    grid-row: 2;
+    user-select: none;
+}
+#right{
+    grid-column: 3;
+    grid-row: 2;
+    user-select: none;
+}
+
+.direccion {
+    height: 30px;
+    width: 30px;
+    user-select: none;
+}
+/* La herramienta "Media Query" permite organizar el codigo tanto en dispositivos pequeños como grandes. 
+Con el atributo "max-width" (como su nombre lo indica) se asigna el tamaño maximo del dispositivo desde el cual se accede y los valores (la configuración) que queremos que se muestre en el dispositivo.
+El ancho (width) de los celulares, normalmente es de 360px, por eso el valor de "max-width".
+Las modificaciones que se hagan dentro de este "@media" solo aplicarán para dispositivos con medida desde 0px hasta 360px. Los dispositivos con medidas más grandes (PC, Tablets, TV, etc.) verán el codigo sin estas modificaciones.  */
+@media (max-width:560px) {
+    .tarjetas{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1px;
+    }
+    .titulo{
+        font-size: 32px 
+    }
+    .subtitulo{
+        font-size: 24px
+    }
+    #tarjetaDeAtaques{
+        flex-direction: column;
+        height: 280px;
+    }
+    #mensajes{
+        display: flex;
+        align-content: center;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 140px;
+        width: 240px;
+        height: 60px;
+        font-size: medium;
+        /* flex-direction: row; */
+        justify-content: center;
+    }
+    .ataques{
+        width: 296px;
+    }
+}
+
+@media (max-width:300px) {
+    #ver-mapa div{
+       display: flex;
+       align-items: center;
+       flex-direction: column;
+    }
+}

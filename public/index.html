@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>MOKEPON 🔥💧🍃</title>
+        <link rel="stylesheet" href="./styles.css">
+        <!-- Este meta "viewport" hace compatible el diseño para pantallas de celular -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <section id="seleccionar-mascota">
+            <h1 class="titulo"> MOKEPON! 🔥💧🍃</h1>
+
+                <h2 class="subtitulo">Elige a tu mascota:</h2>
+            <!-- Se asigna el "id= contenedorTarjetas" a este div para que se pueda ejecutar (por medio de la "const "contenedorTarjetas") el metodo ".forEach" (el cual va a `iterar` la estructura de HTML que asigne los valores necesarios para la creación de tarjetas de cada uno de los mokepones) dentro de este "div" -->
+            <div  id= "contenedorTarjetas" class="tarjetas">
+                
+            </div>
+
+            <button id="boton-mascota">
+                <p>Continuar</p>
+            </button>
+        </section>
+
+        <section id="ver-mapa">
+            <h2 class="subtitulo">Recorre el mapa con tu Mokepon</h2>
+            <canvas id="mapa"></canvas>
+            <!-- Evento "onClick" hace que al hacer click en el "button" (mover) haga llamado directamente a la función "moverCapipepo"-->
+            <!-- Evento "onmousedown" hace que al mantener oprimido el "button" (mover) el movimiento sea constante -->
+            <!-- Evento "onmouseup" detiene el movimiento (estos dos eventos dependen de que se cree la variable "setInterval") -->
+            <div class="movimientos-mokepon" style="display: grid;">
+                                <!-- Se duplica la linea y se agregan los 'Eventos' "ontouchstart y ontouchend" (equivalentes a "onmousedown y onmouseup" respectivamente) para las teclas en el celular. -->
+                                <button onmouseup="detenerMovimiento()" onmousedown="moverIzquierda()" class="direccion" id="left">←</button>
+                                <button ontouchend="detenerMovimiento()" ontouchstart="moverIzquierda()" class="direccion" id="left">←</button>
+                                <button onmouseup="detenerMovimiento()" onmousedown="moverArriba()" class="direccion" id="up">↑</button>
+                                <button ontouchend="detenerMovimiento()" ontouchstart="moverArriba()" class="direccion" id="up">↑</button>
+                                <button onmouseup="detenerMovimiento()" onmousedown="moverAbajo()" class="direccion" id="down">↓</button>
+                                <button ontouchend="detenerMovimiento()" ontouchstart="moverAbajo()" class="direccion" id="down">↓</button>
+                                <button onmouseup="detenerMovimiento()" onmousedown="moverDerecha()" class="direccion" id="right">→</button>
+                                <button ontouchend="detenerMovimiento()" ontouchstart="moverDerecha()" class="direccion" id="right">→</button>
+            </div>
+        </section>
+        
+        <section id="seleccionar-ataque">
+            <!-- Este codigo está programado para que esta sección se cargue como una nueva ventana, por lo cual debemos incluir en el codigo nuevamente el titulo y el subtitulo teniendo en cuenta la clase "class=" de cada uno  -->
+            <h1 class="titulo"> MOKEPON! 🔥💧🍃</h1>
+            
+            <h2 class="subtitulo">Elige tu ataque:</h2>
+
+            <!-- Le asigné "id=" a este <div> para poder organizar los ataques en la pagina -->
+            <div id="tarjetaDeAtaques">
+
+            </div>
+
+            <div id="mensajes" style="display: flex;">
+                <p id="resultado">Elige el orden en que quieres que se realicen tus ataques!! 🤼‍♂️</p>
+
+                <section id="reiniciar">
+                    <button id="boton-reiniciar">Reiniciar</button>
+                </section>
+            </div>
+                 
+            <div class="ataques">
+                <div>
+                    <p id="vidas-jugador">0</p>
+                    <p id="mascota-jugador"></p>
+                    <div id="ataques-del-jugador"></div>
+                </div>
+                <div>
+                    <p id="vidas-enemigo">0</p>
+                    <p id="mascota-enemigo"></p>
+                    <div id="ataques-del-enemigo"></div>
+                </div>
+            </div>
+        </section>
+        <!-- Reubicamos el llamado al archivo JavaScript para que se cargue despues de que haya cargado toda la demás configuración (HTML, CSS, etc.) -->
+        <script src="./mokepon.js"></script>
+    </body>
+</html>
